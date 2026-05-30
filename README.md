@@ -1,15 +1,25 @@
 # logsnip
 
-> A lightweight, AI-powered CLI tool that scans log files for critical errors and uses an LLM to diagnose root causes and suggest fixes — instantly.
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![LLM](https://img.shields.io/badge/LLM-Llama%203.3%2070B-orange)
+
+> Diagnosing Linux system failures manually wastes hours. logsnip automates log triage using AI — isolating critical errors and delivering root-cause analysis in seconds.
+
+---
+
+## Motivation
+
+Manual log analysis during system failures is slow, error-prone, and requires deep domain knowledge. logsnip was built to reduce Mean Time To Repair (MTTR) by automating the triage step — letting developers and sysadmins focus on fixing, not searching.
 
 ---
 
 ## Features
 
-- **Smart Filtering** — Regex-based extraction of lines containing `error`, `failed`, or `panic` (case-insensitive).
-- **AI-Powered Diagnostics** — Sends flagged lines to Llama 3.3 70B (via Groq) and gets back concise root causes + fix commands.
-- **Graceful Error Handling** — Handles missing files and clean logs without crashing.
-- **Simple CLI** — One command to scan any log file. No configuration needed beyond an API key.
+- **Intelligent Log Triage** — Regex pipeline isolates high-severity events (`error`, `failed`, `panic`) from thousands of lines in milliseconds.
+- **AI-Powered Diagnostics** — Sends flagged lines to Llama 3.3 70B (via Groq) and returns concise root-cause analysis with actionable fix commands.
+- **Fault-Tolerant CLI** — Gracefully handles missing files and clean logs without crashing.
+- **Plug-and-Play Interface** — One command to scan any log file. Minimal configuration — just an API key.
 
 ---
 
@@ -44,7 +54,7 @@
 3. **Install dependencies**
 
    ```bash
-   pip install typer groq python-dotenv
+   pip install -r requirements.txt
    ```
 
 4. **Set up your API key**
@@ -52,7 +62,7 @@
    Create a `.env` file in the project root:
 
    ```
-   key=YOUR_GROQ_API_KEY
+   GROQ_API_KEY=your_groq_api_key_here
    ```
 
    > **Note:** The `.env` file is git-ignored by default — your key stays local.
@@ -133,10 +143,12 @@ sudo systemctl restart NetworkManager
 
 ```
 logsnip/
-├── main.py          # CLI entry point (scan + version commands)
-├── .env             # Groq API key (not tracked by git)
-├── .gitignore       # Ignores .env, __pycache__, .venv, *.log
-├── dummy.log        # Sample log file for testing
+├── main.py            # CLI entry point (scan + version commands)
+├── requirements.txt   # Python dependencies
+├── .env               # Groq API key (not tracked by git)
+├── .gitignore         # Ignores .env, __pycache__, .venv, *.log
+├── dummy.log          # Sample log file for testing
+├── LICENSE            # MIT License
 └── README.md
 ```
 
@@ -164,4 +176,4 @@ logsnip/
 
 ## License
 
-This project is open source. Feel free to use, modify, and distribute.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

@@ -5,7 +5,9 @@ from groq import Groq
 import re
 
 load_dotenv()
-client = Groq(api_key=os.environ.get("key"))
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY")
+)
 
 app = typer.Typer()
 
