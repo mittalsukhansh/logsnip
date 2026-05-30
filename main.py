@@ -45,7 +45,7 @@ def scan(target: str = typer.Argument("syslog")):
         print("No errors found.")
 
 
-@app.command("version")  # 👈 add this dummy second command
+@app.command("version")
 def version():
     """Show tool version."""
     print("logsnip v1.0.0")
