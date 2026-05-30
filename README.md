@@ -25,7 +25,7 @@
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/logsnip.git
+   git clone https://github.com/mittalsukhansh/logsnip.git
    cd logsnip
    ```
 
