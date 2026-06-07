@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logsnip"
+version = "1.0.0"
+description = "AI-powered Linux log analyzer"
+dependencies = [
+    "typer",
+    "groq",
+    "python-dotenv"
+]
+
+[project.scripts]
+logsnip = "main:app"
